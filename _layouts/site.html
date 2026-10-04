@@ -15,7 +15,7 @@ layout: base
     {% if posts.size > 0 %}
       {% for post in posts %}
         <article class="post">
-          <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+             <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
           {% include post_meta.html item=post %}
           <p>{{ post.content | strip_html | truncatewords: 100 }}</p>
           <a class="read" href="{{ post.url | relative_url }}">Read more</a>
