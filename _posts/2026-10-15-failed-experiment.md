@@ -43,6 +43,7 @@ These values that we calculated comes from a CSV file that we used to keep track
 
 ![graph](/assets/images/graphs/experiment/experiment.png)
 
+
 Looking at the graph, the data points line up, the regression line goes through them, but.... We used the wrong salinity!!! The resistivity is sitting at
 $5.64 \, \Omega\text{m}$ while seawater at normal temperature sits at around $0.2 \, \Omega\text{m}$, I mean come on, this is just sad. Interestingly,
 if we look at the dilution factor between standard seawater and our solution, it comes out to 32.2 (35 g/L divided by 1.08 g/L $\sim 32.2$, where 1.08 g/L was our salinity).
@@ -56,5 +57,5 @@ Also, here's the book that we used to get through uncertainties. Totally get it 
 
 ![book](/assets/images/erroranalysis.jpg)
 
-    <!--more-->
+<!--more-->
 
