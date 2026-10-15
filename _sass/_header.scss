@@ -1,9 +1,143 @@
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
+:root {
+  --drawer-w: 220px;
+  --drawer-bg: #fafafa;
+  --drawer-border: #e5e7eb;
+  --nav-hover: #eef0f2;
+  --nav-active: #e1e4e8;
 }
 
-.nav a {
+/* Toggle button, fixed at the top left on every page */
+.drawer-toggle {
+  position: fixed;
+  top: 12px;
+  left: 16px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--drawer-border);
+  border-radius: 6px;
+  background: #fff;
+  color: #30343a;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.drawer-toggle:hover {
+  background: var(--nav-hover);
+}
+
+.drawer-toggle:focus-visible {
+  outline: 2px solid #8a929b;
+  outline-offset: 2px;
+}
+
+/* The sidebar itself */
+.drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 30;
+  width: var(--drawer-w);
+  padding: 52px 8px 24px; /* top padding clears the toggle button */
+  border-right: 1px solid var(--drawer-border);
+  background: var(--drawer-bg);
+  overflow-y: auto;
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: transform 0.2s ease, visibility 0s linear 0.2s;
+}
+
+.drawer-open .drawer {
+  transform: none;
+  visibility: visible;
+  transition: transform 0.2s ease, visibility 0s;
+}
+
+.drawer-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drawer-nav li + li {
+  margin-top: 2px;
+}
+
+.drawer-link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #30343a;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.drawer-link i {
+  width: 14px;
+  color: #6b7280;
+  font-size: 12px;
+  text-align: center;
+}
+
+.drawer-link span {
+  text-transform: var(--side-case);
+}
+
+.drawer-link:hover {
+  background: var(--nav-hover);
+  color: #000;
+  text-decoration: none;
+}
+
+.drawer-link.is-active {
+  background: var(--nav-active);
+  color: #111;
   font-weight: 700;
+}
+
+.drawer-link.is-active i {
+  color: #30343a;
+}
+
+.drawer-link:focus-visible {
+  outline: 2px solid #8a929b;
+  outline-offset: -2px;
+}
+
+/* Dim the page behind the sidebar when it overlays (narrow screens) */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+}
+
+@media (max-width: 1199px) {
+  .drawer-open .drawer-backdrop {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s ease, visibility 0s;
+  }
+
+  .drawer-open .drawer {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer,
+  .drawer-backdrop,
+  .shell {
+    transition: none;
+  }
 }

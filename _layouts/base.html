@@ -3,10 +3,16 @@
 {%- include head.html -%}
 
   <body>
-    <main class="wrap">
-      {{ content }}
-    </main>
+    {%- include drawer.html -%}
 
-    <!-- {%- include footer.html -%} -->
+    <div class="shell">
+      <main class="wrap">
+        {{ content }}
+      </main>
+
+      <!-- {%- include footer.html -%} -->
+    </div>
+
+    <script src="{{ '/assets/js/drawer.js' | relative_url }}" defer></script>
   </body>
 </html>

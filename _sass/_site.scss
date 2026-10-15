@@ -1,9 +1,24 @@
+/* Wraps everything except the sidebar; slides right when the sidebar is open on wide screens */
+.shell {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  transition: margin-left 0.2s ease;
+}
+
+@media (min-width: 1200px) {
+  .drawer-open .shell {
+    margin-left: var(--drawer-w);
+  }
+}
+
 .wrap {
   flex: 1;
   width: 100%;
   max-width: 1150px;
   margin: 0 auto;
-  padding: 48px 20px;
+  padding: 64px 20px 48px;
 }
 
 .home {
@@ -87,6 +102,6 @@
   }
 
   .wrap {
-    padding: 30px 15px;
+    padding: 64px 15px 30px;
   }
 }

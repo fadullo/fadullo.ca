@@ -1,6 +1,6 @@
 ---
 layout: page
-title: writing
+title: Writing
 toc: true
 permalink: /writing/
 ---
@@ -17,4 +17,4 @@ I plan to release these documents by the end fall semester for anyone to use.
 
 1. Calculus I, II, & III
 2. Linear Algebra
-3. First-Year Physics
+3. Differential Equations

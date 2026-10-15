@@ -1,49 +1,27 @@
+/* Article on the left, table of contents on the right */
 .page-wrap {
   display: grid;
-  grid-template-columns: 320px minmax(0, 640px);
-  gap: 0 240px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: calc(100vw - 80px);
-  max-width: none;
-  margin-left: calc((1150px - 100vw) / 2 + 40px);
+  grid-template-columns: minmax(0, 640px) 220px;
+  gap: 0 56px;
+  justify-content: center;
+  align-items: start;
+}
+
+.page-wrap.wide {
+  grid-template-columns: minmax(0, 840px) 220px;
 }
 
 .page-wrap.no-toc {
   grid-template-columns: minmax(0, 540px);
-  justify-content: center;
-}
-
-.page-wrap.wide {
-  grid-template-columns: 320px minmax(0, 840px);
 }
 
 .page-wrap.wide.no-toc {
   grid-template-columns: minmax(0, 760px);
-  justify-content: center;
-}
-
-.toc {
-  position: fixed;
-  top: 58px;
-  left: 40px;
-  width: 320px;
-  max-height: calc(100vh - 82px);
-  margin: 0;
-  overflow-y: auto;
-  color: #30343a;
-  font-size: 10pt;
-  line-height: 1.45;
-  z-index: 10;
-}
-
-.toc strong {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 700;
 }
 
 .page {
+  grid-column: 1;
+  grid-row: 1;
   min-width: 0;
 }
 
@@ -51,13 +29,30 @@
   margin: 0 0 8px;
 }
 
-.page-wrap:not(.no-toc) .page {
-  grid-column: 2;
-}
-
 .back {
   display: inline-block;
   margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.toc {
+  grid-column: 2;
+  grid-row: 1;
+  position: sticky;
+  top: 24px;
+  max-height: calc(100vh - 48px);
+  margin: 0;
+  padding-left: 16px;
+  border-left: 1px solid var(--drawer-border);
+  overflow-y: auto;
+  color: #30343a;
+  font-size: 10pt;
+  line-height: 1.45;
+}
+
+.toc strong {
+  display: block;
+  margin-bottom: 6px;
   font-weight: 700;
 }
 
@@ -69,20 +64,29 @@
 }
 
 .toc-list ul {
-  padding-left: 22px;
+  padding-left: 14px;
 }
 
 .toc-list li {
-  margin: 4px 0;
+  margin: 2px 0;
 }
 
 .toc-list a {
+  display: block;
+  padding: 3px 8px;
+  border-radius: 4px;
   color: #30343a;
   font-weight: 400;
   text-decoration: none;
 }
 
+.toc-list a:hover {
+  background: var(--nav-hover);
+}
+
 .toc-list a.is-active {
+  background: var(--nav-active);
+  color: #111;
   font-weight: 700;
 }
 
@@ -92,22 +96,24 @@
   max-width: 100%;
 }
 
-@media (max-width: 1300px) {
-  .page-wrap {
-    display: block;
-    width: auto;
-    margin-left: 0;
-  }
-
-  .toc {
-    position: static;
-    width: 100%;
-    max-width: 640px;
-    margin: 0 auto 36px;
-    overflow: visible;
+/* Too narrow for two columns: table of contents goes above the article */
+@media (max-width: 1000px) {
+  .page-wrap,
+  .page-wrap.wide {
+    grid-template-columns: minmax(0, 640px);
   }
 
   .page-wrap:not(.no-toc) .page {
-    grid-column: auto;
+    grid-row: 2;
+  }
+
+  .toc {
+    grid-column: 1;
+    position: static;
+    max-height: none;
+    margin: 0 0 32px;
+    padding-left: 0;
+    border-left: 0;
+    overflow: visible;
   }
 }

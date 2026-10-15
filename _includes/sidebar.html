@@ -1,22 +1,22 @@
 <aside class="side">
   <!-- <img class="avatar" src="{{ site.avatar | relative_url }}"> -->
-  <p><strong>{{ site.author }}</strong></p>
+  <!-- <p class="side-name"><strong>{{ site.author }}</strong></p> -->
   <p class="desc">{{ site.description }}</p>
 
-  <strong>socials</strong>
+  <strong class="side-label">Socials</strong>
   <ul class="links">
     {%- for link in site.social_links -%}
       <li>
         <a href="{{ link.user_url }}">
           <i class="fa-brands fa-{{ link.platform | lowercase }}" aria-hidden="true"></i>
-          {{ link.platform | lowercase }}
+          <span class="side-case">{{ link.platform }}</span>
         </a>
       </li>
     {%- endfor -%}
   </ul>
 
   {%- if site.contact_links -%}
-    <strong>contact</strong>
+    <strong class="side-label">Contact</strong>
     <ul class="links contact-links">
       {%- for contact in site.contact_links -%}
         {%- assign contact_type = contact.type | default: "link" -%}
@@ -40,7 +40,4 @@
       {%- endfor -%}
     </ul>
   {%- endif -%}
-
-  <hr>
-  {%- include header.html -%}
 </aside>

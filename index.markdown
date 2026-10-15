@@ -1,6 +1,6 @@
 ---
 layout: site
-title: posts
+title: Home
 math: true
 ---
 

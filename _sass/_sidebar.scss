@@ -1,5 +1,17 @@
+:root {
+  /* How the name, labels and platform names are cased.
+     Use `uppercase` for ALL CAPS instead. */
+  --side-case: capitalize;
+}
+
 .side {
   max-width: 260px;
+}
+
+.side-name,
+.side-label,
+.side-case {
+  text-transform: var(--side-case);
 }
 
 .avatar {
@@ -14,6 +26,11 @@
 
 .desc {
   color: #616161;
+}
+
+/* The description comes from _config.yml, so just capitalise its first letter */
+.desc::first-letter {
+  text-transform: uppercase;
 }
 
 .links {
@@ -63,12 +80,6 @@
   margin: 8px 0 0;
   color: #666;
   font-size: 10.5pt;
-}
-
-.side hr {
-  margin: 24px 0;
-  border: 0;
-  border-top: 1px solid #e8e8e8;
 }
 
 @media (max-width: 768px) {

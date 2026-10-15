@@ -1,14 +1,51 @@
 {%- assign default_paths = site.pages | map: "path" -%}
 {%- assign page_paths = site.nav_pages | default: default_paths -%}
-{%- assign page_titles = site.pages | map: "title" | compact -%}
 
-{%- unless page_titles == empty -%}
-  <nav class="nav" aria-label="Pages">
+<nav class="drawer-nav" aria-label="Pages">
+  <ul>
+    <li>
+      <a class="drawer-link{% if page.url == '/' %} is-active{% endif %}" href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>
+        <i class="fa-solid fa-house" aria-hidden="true"></i>
+        <span>Home</span>
+      </a>
+    </li>
+
     {%- for path in page_paths -%}
       {%- assign item = site.pages | where: "path", path | first -%}
-      {%- if item.title -%}
-        <a href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+      {%- if item.title and item.url != "/" -%}
+
+        {%- comment -%} Active when this is the current page, or the current page lives under this page's folder. {%- endcomment -%}
+        {%- assign is_current = false -%}
+        {%- if page.url == item.url -%}
+          {%- assign is_current = true -%}
+        {%- else -%}
+          {%- assign last_char = item.url | slice: -1 -%}
+          {%- if last_char == "/" -%}
+            {%- assign url_start = page.url | slice: 0, item.url.size -%}
+            {%- if url_start == item.url -%}
+              {%- assign is_current = true -%}
+            {%- endif -%}
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- comment -%} Optional per-page override: icon: pen-nib in the page's front matter. {%- endcomment -%}
+        {%- assign icon = item.icon -%}
+        {%- unless icon -%}
+          {%- assign title_key = item.title | downcase -%}
+          {%- case title_key -%}
+            {%- when "posts" -%}{%- assign icon = "newspaper" -%}
+            {%- when "writing" -%}{%- assign icon = "pen-nib" -%}
+            {%- else -%}{%- assign icon = "file-lines" -%}
+          {%- endcase -%}
+        {%- endunless -%}
+
+        <li>
+          <a class="drawer-link{% if is_current %} is-active{% endif %}" href="{{ item.url | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>
+            <i class="fa-solid fa-{{ icon }}" aria-hidden="true"></i>
+            <span>{{ item.title | escape }}</span>
+          </a>
+        </li>
       {%- endif -%}
     {%- endfor -%}
-  </nav>
-{%- endunless -%}
+  </ul>
+</nav>

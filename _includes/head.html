@@ -4,8 +4,20 @@
 
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
+  {%- if site.avatar -%}
+    <link rel="icon" href="{{ site.avatar | replace_first: './', '/' | relative_url }}">
+  {%- endif %}
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="{{ '/assets/css/Styles.css' | relative_url }}">
+
+  <script>
+    try {
+      if (localStorage.getItem('drawer-open') === '1') {
+        document.documentElement.classList.add('drawer-open');
+      }
+    } catch (e) {}
+  </script>
 
   {%- if page.math -%}
     <script>
