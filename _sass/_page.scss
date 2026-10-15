@@ -1,7 +1,7 @@
 /* Article on the left, table of contents on the right */
 .page-wrap {
   display: grid;
-  grid-template-columns: minmax(0, 640px) 220px;
+  grid-template-columns: minmax(0, var(--text-width)) 220px;
   gap: 0 56px;
   justify-content: center;
   align-items: start;
@@ -100,7 +100,7 @@
 @media (max-width: 1000px) {
   .page-wrap,
   .page-wrap.wide {
-    grid-template-columns: minmax(0, 640px);
+    grid-template-columns: minmax(0, var(--text-width));
   }
 
   .page-wrap:not(.no-toc) .page {

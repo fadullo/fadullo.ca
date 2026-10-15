@@ -11,7 +11,7 @@ body {
   margin: 0;
   color: #222;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;;
-  font-size: 12pt;
+  font-size: 11pt;
   line-height: 1.45;
   display: flex;
   flex-direction: column;
@@ -19,6 +19,11 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
+  padding: 4px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 a {

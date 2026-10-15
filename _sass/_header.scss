@@ -79,13 +79,6 @@
   line-height: 18px;
 }
 
-.drawer-link i {
-  width: 14px;
-  color: #6b7280;
-  font-size: 12px;
-  text-align: center;
-}
-
 .drawer-link span {
   text-transform: var(--side-case);
 }
@@ -100,10 +93,6 @@
   background: var(--nav-active);
   color: #111;
   font-weight: 700;
-}
-
-.drawer-link.is-active i {
-  color: #30343a;
 }
 
 .drawer-link:focus-visible {

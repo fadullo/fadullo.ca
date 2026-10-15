@@ -5,7 +5,6 @@
   <ul>
     <li>
       <a class="drawer-link{% if page.url == '/' %} is-active{% endif %}" href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>
-        <i class="fa-solid fa-house" aria-hidden="true"></i>
         <span>Home</span>
       </a>
     </li>
@@ -28,20 +27,8 @@
           {%- endif -%}
         {%- endif -%}
 
-        {%- comment -%} Optional per-page override: icon: pen-nib in the page's front matter. {%- endcomment -%}
-        {%- assign icon = item.icon -%}
-        {%- unless icon -%}
-          {%- assign title_key = item.title | downcase -%}
-          {%- case title_key -%}
-            {%- when "posts" -%}{%- assign icon = "newspaper" -%}
-            {%- when "writing" -%}{%- assign icon = "pen-nib" -%}
-            {%- else -%}{%- assign icon = "file-lines" -%}
-          {%- endcase -%}
-        {%- endunless -%}
-
         <li>
           <a class="drawer-link{% if is_current %} is-active{% endif %}" href="{{ item.url | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>
-            <i class="fa-solid fa-{{ icon }}" aria-hidden="true"></i>
             <span>{{ item.title | escape }}</span>
           </a>
         </li>
