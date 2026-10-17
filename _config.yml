@@ -31,6 +31,8 @@ social_links:
     user_url: "https://instagram.com/jsfadullo"
   # - platform: spotify
   #   user_url: "https://open.spotify.com/user/4wrnu63xlunbdovbv9m6toq0o"
+  - platform: youtube
+    user_url: "https://www.youtube.com/@JhondeffFadullo"
 
 contact_links:
   - type: email
@@ -44,13 +46,6 @@ contact_links:
   #   label: "+1 902 000 0000"
   #   url: "tel:+19020000000"
 
-projects_links:
-  # - label: "Profile"
-  #   url: "https://www.roblox.com/users/926820216/profile"
-  #   icon: "gamepad"
-  - label: "DevForum"
-    url: "https://devforum.roblox.com/u/johnnynaynay/summary"
-    icon: "comments"
 
 plugins:
   - jekyll-feed
