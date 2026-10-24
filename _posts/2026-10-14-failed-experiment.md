@@ -8,8 +8,7 @@ math: true
 
 Last december, me and Tristan (humble lab partner) performed an experiment where it's goal was to measure the resistivity of a given salinity of a water bath using only
 theoretical equations. You would think that saltwater was the candidate choice, and it was, but on the day of experiment, we took the wrong jug with the wrong percentage of salinity,
-we needed roughly 3.5% salinity (accepted average salinity of saltwater), ours was 0.1%, just 1 gram of salt dissolved in nearly a liter of water. But oh well, just like in my
-freshmen year physics labs, you can't make data up, even if it means getting out of a 3hr lab faster. 
+we needed roughly 3.5% salinity (accepted average salinity of saltwater), ours was 0.1%, just 1 gram of salt dissolved in nearly a liter of water.
 
 <!-- ![Short description of the picture](/assets/images/experiment.jpg) -->
 
