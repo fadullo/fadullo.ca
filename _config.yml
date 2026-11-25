@@ -31,8 +31,8 @@ social_links:
     user_url: "https://instagram.com/jsfadullo"
   # - platform: spotify
   #   user_url: "https://open.spotify.com/user/4wrnu63xlunbdovbv9m6toq0o"
-  - platform: youtube
-    user_url: "https://www.youtube.com/@JhondeffFadullo"
+  # - platform: youtube
+  #   user_url: "https://www.youtube.com/@JhondeffFadullo"
 
 contact_links:
   - type: email
